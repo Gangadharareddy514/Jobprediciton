@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css')}}">
+</head>
+<body>
+<div class="container">
+  <form action="{{ url_for('predict')}}" method="POST">
+  <center><h2>Job Posting Classifier</h2></center>
+    <div class="row">
+      <div class="col-25">
+        <label for="title">Title</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="title" name="title" placeholder="Enter the title such as Marketing Intern..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="location">Location</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="location" name="location" placeholder="Enter the location like US, NY, New York">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="department">Department</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="department" name="department" placeholder="Enter the department like Marketing">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="company_profile">Company Profile</label>
+      </div>
+      <div class="col-75">
+        <textarea id="company_profile" name="company_profile" placeholder="Details of the company" style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="description">Description</label>
+      </div>
+      <div class="col-75">
+        <textarea id="description" name="description" placeholder="Description of the job posting" style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="requirements">Requirements</label>
+      </div>
+      <div class="col-75">
+        <textarea id="requirements" name="requirements" placeholder="Requirements" style="height:200px"></textarea>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-25">
+        <label for="benefits">Benefits</label>
+      </div>
+      <div class="col-75">
+        <textarea id="benefits" name="benefits" placeholder="Benefits of working in that company" style="height:200px"></textarea>
+      </div>
+    </div>  
+    <div class="row">
+      <div class="col-25">
+        <label for="employment_type">Employment Type</label>
+      </div>
+      <div class="col-75">
+        <select id="employment_type" name="employment_type">
+        <option value="none" selected disabled hidden>
+          Select an Option
+          </option>
+          <option value="Full-time ">Full-time</option>
+          <option value="Contract">Contract</option>
+          <option value="Part-time ">Part-time </option>
+          <option value="Temporary">Temporary</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="required_experience">Required Experience</label>
+      </div>
+      <div class="col-75">
+        <select id="required_experience" name="required_experience">
+        <option value="none" selected disabled hidden>
+          Select an Option
+          </option>
+          <option value="Mid-Senior level">Mid-Senior level</option>
+          <option value="Entry level">Entry level</option>
+          <option value="Associate">Associate</option>
+          <option value="Director">Director</option>
+          <option value="Internship">Internship</option>
+          <option value="Executive">Executive</option>
+          <option value="Not Applicable">Not Applicable</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="required_education">Required Education</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="required_education" name="required_education" placeholder="Enter the required education">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="industry">Industry</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="industry" name="industry" placeholder="Enter the industry such as Marketing and Advertising">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="function">Function</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="function" name="function" placeholder="Enter the function such as Marketing, Customer Service">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-50">
+      <input type="submit" value="Submit">
+    </div>
+    </div>
+  </form>
+  <br><br><center><h3>{{ prediction_text }}<h3></center>
+</div>
+</body>
+</html>
